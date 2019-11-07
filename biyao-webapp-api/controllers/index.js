@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const biyaoindex = require("../models/biyaoindex")
+const biyaotype =require("../models/biyaotype")
 
 router.all("*",(req,res,next)=>{
   res.header("Access-Control-Allow-Origin","*");
@@ -14,6 +15,11 @@ router.all("*",(req,res,next)=>{
 /* GET home page. */
 router.get("/biyaoindex",(req,res)=>{
   let data=biyaoindex.getData();
+  res.json(data);
+})
+
+router.get("/biyaotype",(req,res)=>{
+  let data=biyaotype.gettypeData();
   res.json(data);
 })
 
