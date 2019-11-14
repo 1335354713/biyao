@@ -3,6 +3,7 @@ var router = express.Router();
 const biyaoindex = require("../models/biyaoindex")
 const biyaotype =require("../models/biyaotype")
 const biyaoserver =require("../models/biyaoserver")
+const biyaocart =require("../models/biyaocart")
 
 router.all("*",(req,res,next)=>{
   res.header("Access-Control-Allow-Origin","*");
@@ -26,6 +27,11 @@ router.get("/biyaotype",(req,res)=>{
 
 router.get("/biyaoserver",(req,res)=>{
   let data=biyaoserver.getServer();
+  res.json(data);
+})
+
+router.get("/biyaocart",(req,res)=>{
+  let data=biyaocart.getData();
   res.json(data);
 })
 module.exports = router;
